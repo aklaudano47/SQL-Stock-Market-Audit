@@ -14,6 +14,7 @@ Instead of just writing static code, I implemented these queries within a Python
 ### Key Results
 * **High Volatility Detection:** Successfully isolated tickers (e.g., GE, MSFT) with daily ranges exceeding established risk thresholds.
 * **Moving Average Validation:** Validated calculation of technical indicators across partitioned ticker groups.
+![SQL Audit Results](data_table.png)
 
 ## Why This Matters
 In a Production/Ops role, data quality is the highest priority. This project proves I can audit large datasets at the database level, ensuring that risk models are fed high-integrity information.
