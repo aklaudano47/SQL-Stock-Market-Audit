@@ -1,19 +1,19 @@
 # Financial Data Integrity & Quantitative Auditing (SQL)
 
 ## Project Overview
-This repository demonstrates technical proficiency in SQL for financial data operations. While my primary analytical background is in R (dplyr) and Python (pandas), this project showcases my ability to translate complex data-wrangling logic into performant SQL queries for relational databases.
+This project demonstrates the application of SQL for financial data operations and quality assurance. Using an in-memory SQLite database, I developed a series of audit scripts designed to flag market anomalies and ensure data completeness before it reaches a predictive model.
 
-## Transferable Skills: dplyr to SQL Mapping
-I approach SQL with a functional programming mindset, ensuring data integrity at every step of the pipeline:
-* **Filtering & Selection:** Mapping `filter()` and `select()` to `WHERE` and `SELECT` for targeted data extraction.
-* **Aggregations:** Implementing `group_by() %>% summarize()` logic using `GROUP BY` and aggregate functions to calculate sector-wide metrics.
-* **Window Functions:** Utilizing `OVER(PARTITION BY...)` to calculate rolling averages and volatility—a direct translation of `slider` or `tidyquant` functions in R.
+## Core SQL Functionality
+* **Volatility Auditing:** Used aggregate functions and arithmetic operations to calculate daily price ranges and identify assets with abnormal variance.
+* **Window Functions:** Implemented `AVG() OVER(PARTITION BY...)` to calculate 5-day rolling moving averages—essential for trend analysis and technical signal generation.
+* **Data Integrity Checks:** Designed queries to identify "ghost tickers" or incomplete trading days to prevent backtest bias.
 
-## Key Audit Queries
-The `market_analysis.sql` script included in this repo covers:
-1. **Volatility Analysis:** Identifying high-variance assets by calculating daily price ranges.
-2. **Technical Indicators:** Building 5-day moving averages using Window Functions.
-3. **Data Quality Checks:** Identifying "ghost tickers" or incomplete trading years to ensure backtest reliability (Data Ops focus).
+## Technical Workflow (Applied SQL)
+Instead of just writing static code, I implemented these queries within a Python/Jupyter environment (`sqlite3`) to simulate a modern data-science pipeline where SQL serves as the primary extraction and cleaning layer.
 
-## Why This Matters for Risk Operations
-In a production environment, data must be cleaned before it reaches the model. This project demonstrates my ability to perform "pre-flight" data audits at the database level, reducing the computational load on Python/R analytical environments and ensuring that only high-integrity data enters the strategy pipeline.
+### Key Results
+* **High Volatility Detection:** Successfully isolated tickers (e.g., GE, MSFT) with daily ranges exceeding established risk thresholds.
+* **Moving Average Validation:** Validated calculation of technical indicators across partitioned ticker groups.
+
+## Why This Matters
+In a Production/Ops role, data quality is the highest priority. This project proves I can audit large datasets at the database level, ensuring that risk models are fed high-integrity information.
